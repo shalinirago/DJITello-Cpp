@@ -43,7 +43,11 @@ In this project, a series of commands can be designed into a .txt script for the
 
 Modify the command.txt file to include a range of commands including flips, curves, jump, etc. Ensure that the battery is full when attempting to send complex commands such as flips and curves to the drone.
 
+## Troubleshooting
 
+* Ensure that the firewall is off temporarily if a connection to the drone is not established
+* Use [Wireshark](https://www.wireshark.org/) to analyze the UDP packets sent; this is an efficient tool to trace the packets sent out and to analyse the network
+* If no connection is being made to the drone, update firmware of the Tello using the Tello EDU app
 
 
 
