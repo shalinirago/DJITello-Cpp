@@ -44,14 +44,14 @@ bool Tello::initialise()
 
 	/* Defining the server address structure */
 	server_addr.sin_family = AF_INET;
-	server_addr.sin_port = htons(tello_port);							   // convert the port value to hex 
+	server_addr.sin_port = htons(tello_port); // convert the port value to hex 
 	inet_pton(AF_INET, tello_ip, &server_addr.sin_addr);
 
 	this_thread::sleep_for(chrono::duration<double>(2));
 
 	/* Creating a socket */
 	cout << "Creating a socket... " << endl;
-	socket_tello = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);				//socket(IPv4, socket type using UDP, The UDP)
+	socket_tello = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP); //socket(IPv4, socket type using UDP, The UDP)
 	/* Checking if socket created is valid*/
 	if (socket_tello == INVALID_SOCKET)
 	{
@@ -72,8 +72,8 @@ bool Tello::initialise()
 
 
 	/* Start receive_thread */
-	thread receive_thread_tello(&Tello::receiveThread, this);				// requires an instance to be called
-	receive_thread_tello.detach();											// .detach() ensures that the thread runs simultaneously and separately from the main thread
+	thread receive_thread_tello(&Tello::receiveThread, this); // requires an instance to be called
+	receive_thread_tello.detach(); // .detach() ensures that the thread runs simultaneously and separately from the main thread
 	success = true;
 
 	return success;
@@ -115,7 +115,7 @@ bool Tello::sendCommand(string command)
 	clock_t recv_time = clock();
 	cout << " Took : " << (recv_time - send_time) / CLOCKS_PER_SEC << " to receive command " << endl;
 	
-	memset(buf, 0, sizeof(buf));								//clear out buffer
+	memset(buf, 0, sizeof(buf)); //clear out buffer
 
 	success = true;
 	
