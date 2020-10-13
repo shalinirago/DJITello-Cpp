@@ -1,0 +1,9 @@
+takeoff
+forward 50
+back 50
+delay 5
+flip l
+delay 2
+flip r
+delay 1
+land
